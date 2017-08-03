@@ -472,13 +472,27 @@ def add_ospf_to_svi_cfg(svi_conf_list,svi_on_device,d_svi_to_area):
                 svi_with_ospf_conf.append(line)
             elif line_lst[0] == 'ip' and line_lst[1] == 'address':
                 if int_svi in d_svi_to_area:
-                    if d_svi_to_area[int_svi]>0:
+#                    if d_svi_to_area[int_svi]>0:
+#
+#                        
+#                        svi_with_ospf_conf.append(' vrf member OPNET')
+#                        svi_with_ospf_conf.append(line)
+#                        svi_with_ospf_conf.append(' ip router ospf 249 area ' + str(d_svi_to_area['interface Vlan' + vlan_svi]))
+#
+                    if isinstance(d_svi_to_area[int_svi],str) and  d_svi_to_area[int_svi] != '' :
 
                         
                         svi_with_ospf_conf.append(' vrf member OPNET')
                         svi_with_ospf_conf.append(line)
                         svi_with_ospf_conf.append(' ip router ospf 249 area ' + str(d_svi_to_area['interface Vlan' + vlan_svi]))
-            
+                    
+                    elif d_svi_to_area[int_svi] == '' or isinstance(d_svi_to_area[int_svi],str) == False:
+                        svi_with_ospf_conf.append(' vrf member OPNET')
+                        svi_with_ospf_conf.append(line)
+                    
+                else:
+                    svi_with_ospf_conf.append(' vrf member OPNET')
+                    svi_with_ospf_conf.append(line)            
                   
             else:
                 svi_with_ospf_conf.append(line)
