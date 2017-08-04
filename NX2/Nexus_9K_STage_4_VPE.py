@@ -214,21 +214,19 @@ def write_cfg(conf_list):
 
 #################### CONSTATNT ##################
 
-new_po = 'interface Port-channel411'
+new_po = 'interface Port-channel441'
 
 be2po_map = {'interface Bundle-Ether133':'interface Port-channel133', 
                'interface TenGigabitEthernet0/2/0/0':'interface TenGigabitEthernet7/1',
-               'interface GigabitEthernet0/7/0/3' : 'interface GigabitEthernet4/5',
-               'interface GigabitEthernet0/2/0/4' : 'interface GigabitEthernet4/6',
                # below no port-channel interfaces
                }
 
-vpeosw_to_vpevce_map = { 'Bundle-Ether133': 'Bundle-Ether411',
-                         'TenGigE0/2/0/0' : 'Bundle-Ether411',
+vpeosw_to_vpevce_map = { 'Bundle-Ether133': 'Bundle-Ether441',
+                         'TenGigE0/2/0/0' : 'Bundle-Ether441',
                          # below no port-channel interfaces
                         }
 
-NEW_BE = 'interface Bundle-Ether411'
+NEW_BE = 'interface Bundle-Ether441'
 OLD_BE = 'interface Bundle-Ether133'
 
 PO_OSW_MATE = 'Port-channel1'
@@ -239,16 +237,15 @@ VPE_ROUTER =    'NAVPE113'
 VCE_SWITCH =    'NAVCE131'
 BRIDGE_NAME =   '10.192.10.8'
 
-BASE_DIR = '/Users/aspera/Documents/Clienti/VF-2017/NMP/NA1C-C/' + OSW_SWITCH + '/Stage_4/VPE/'
+BASE_DIR = '/Users/aspera/Documents/Clienti/VF-2017/Nexus_9K/NMP/SITES/NA1C/' + OSW_SWITCH + '/Stage_4/VPE/'
 
-
-INPUT_XLS = BASE_DIR + OSW_SWITCH + '_OUT_DB_OPT.xlsx'
+#INPUT_XLS = BASE_DIR + OSW_SWITCH + '_OUT_DB_OPT.xlsx'
 
 VPE_CFG_TXT = BASE_DIR + VPE_ROUTER + '.txt'
 
-OSW_CFG_TXT = BASE_DIR + OSW_SWITCH + '.txt'
-VSW_CFG_TXT_IN = BASE_DIR + OSW_SWITCH + 'VSW.txt'
-VCE_CFG_TXT_OUT = BASE_DIR + OSW_SWITCH + 'VCE_addendum.txt'
+#OSW_CFG_TXT = BASE_DIR + OSW_SWITCH + '.txt'
+#VSW_CFG_TXT_IN = BASE_DIR + OSW_SWITCH + 'VSW.txt'
+#VCE_CFG_TXT_OUT = BASE_DIR + OSW_SWITCH + 'VCE_addendum.txt'
 VCE_CFG_TXT_IN = BASE_DIR + OSW_SWITCH + 'VCE.txt'
 VPE_CFG_TXT_OUT = BASE_DIR + OSW_SWITCH + 'VPE_addendum.txt'
 
